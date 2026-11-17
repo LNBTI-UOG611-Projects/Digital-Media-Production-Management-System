@@ -1,4 +1,4 @@
-// Login helpers. Member 3 owns this file once the Django auth endpoints exist.
+// Auth helpers. Member 3 owns this file once the Django auth endpoints exist.
 
 export type Role = "owner" | "manager" | "employee" | "freelancer" | "client";
 
@@ -54,6 +54,58 @@ export async function login(username: string, password: string): Promise<Session
   if (!meRes.ok) throw new Error("Signed in, but could not load your profile.");
   const me: { role: Role; first_name: string; last_name: string } = await meRes.json();
   return { ...tokens, role: me.role, name: `${me.first_name} ${me.last_name}`.trim() };
+}
+
+// ---- Client registration ----------------------------------------------------
+
+export type RegisterInput = {
+  first_name: string;
+  last_name: string;
+  company_name: string;
+  email: string;
+  phone: string;
+  username: string;
+  password: string;
+};
+
+/** Thrown when the server rejects a field, e.g. { username: "That username is already taken." } */
+export class RegisterError extends Error {
+  fields: Record<string, string>;
+  constructor(message: string, fields: Record<string, string> = {}) {
+    super(message);
+    this.fields = fields;
+  }
+}
+
+// Backend contract for Member 3:
+//   POST /api/auth/register/  with the fields above
+//   creates a User (role "client"), a Client (company_name) and a ClientContact
+//   201 on success. On 400 return { "<field>": ["message", ...] } for each bad field.
+export async function registerClient(input: RegisterInput): Promise<void> {
+  if (MOCK_AUTH) {
+    await new Promise((r) => setTimeout(r, 700));
+    if (MOCK_USERS[input.username.trim().toLowerCase()])
+      throw new RegisterError("Please fix the highlighted field.", { username: "That username is already taken." });
+    return;
+  }
+
+  let res: Response;
+  try {
+    res = await fetch(`${API_URL}/auth/register/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(input),
+    });
+  } catch {
+    throw new Error("Cannot reach the server. Please try again later.");
+  }
+  if (res.status === 400) {
+    const body: Record<string, string[] | string> = await res.json().catch(() => ({}));
+    const fields: Record<string, string> = {};
+    for (const [k, val] of Object.entries(body)) fields[k] = Array.isArray(val) ? val[0] : String(val);
+    throw new RegisterError("Please fix the highlighted fields.", fields);
+  }
+  if (!res.ok) throw new Error("Something went wrong. Please try again.");
 }
 
 // Temporary storage. Member 3 can replace this with httpOnly cookies.
