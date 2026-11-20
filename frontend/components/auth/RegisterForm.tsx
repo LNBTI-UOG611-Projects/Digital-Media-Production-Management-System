@@ -9,7 +9,7 @@ type Values = RegisterInput & { confirm: string; agree: boolean };
 type Errors = Partial<Record<keyof Values, string>>;
 
 const empty: Values = {
-  first_name: "", last_name: "", company_name: "", email: "", phone: "",
+  client_type: "individual", first_name: "", last_name: "", company_name: "", email: "", phone: "",
   username: "", password: "", confirm: "", agree: false,
 };
 
@@ -20,7 +20,7 @@ function validate(v: Values): Errors {
   const e: Errors = {};
   if (!v.first_name.trim()) e.first_name = "Enter your first name.";
   if (!v.last_name.trim()) e.last_name = "Enter your last name.";
-  if (!v.company_name.trim()) e.company_name = "Enter your company or business name.";
+  if (v.client_type === "company" && !v.company_name.trim()) e.company_name = "Enter your company or business name.";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) e.email = "Enter a valid email address.";
   if (v.phone && !/^[0-9+()\-\s]{7,20}$/.test(v.phone)) e.phone = "Enter a valid phone number.";
   if (!/^[a-zA-Z0-9_.-]{3,30}$/.test(v.username)) e.username = "Use 3 to 30 letters, numbers, dots, dashes or underscores.";
@@ -77,7 +77,7 @@ export default function RegisterForm() {
     try {
       const { confirm: _c, agree: _a, ...payload } = v;
       void _c; void _a;
-      await registerClient(payload);
+      await registerClient({ ...payload, company_name: v.client_type === "company" ? v.company_name.trim() : "" });
       setDone(true);
     } catch (err) {
       if (err instanceof RegisterError && Object.keys(err.fields).length) setErrors(err.fields as Errors);
@@ -114,6 +114,29 @@ export default function RegisterForm() {
         <div role="alert" className="rounded-xl border border-burgundy/30 bg-peach/30 px-3 py-2 text-sm text-burgundy">{formError}</div>
       )}
 
+      <fieldset>
+        <legend className="mb-1.5 text-sm font-semibold text-charcoal">I am registering as</legend>
+        <div className="grid grid-cols-2 gap-3">
+          {([
+            { value: "individual", title: "Individual", note: "Personal or private" },
+            { value: "company", title: "Company", note: "Business or organisation" },
+          ] as const).map((o) => (
+            <label
+              key={o.value}
+              className={`flex cursor-pointer items-center gap-3 rounded-2xl border px-4 py-3 focus-within:ring-2 focus-within:ring-peach ${
+                v.client_type === o.value ? "border-burgundy bg-peach/30" : "border-line bg-white"
+              }`}
+            >
+              <input type="radio" name="client_type" value={o.value} checked={v.client_type === o.value} onChange={() => set("client_type", o.value)} className="h-4 w-4 accent-burgundy" />
+              <span>
+                <span className="block text-sm font-semibold text-charcoal">{o.title}</span>
+                <span className="block text-xs text-muted">{o.note}</span>
+              </span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
       <div className="grid gap-4 sm:grid-cols-2">
         <Field id="first_name" label="First name" error={errors.first_name}>
           <input id="first_name" autoComplete="given-name" value={v.first_name} onChange={(e) => set("first_name", e.target.value)} className={cls("first_name")} {...aria("first_name")} />
@@ -123,9 +146,11 @@ export default function RegisterForm() {
         </Field>
       </div>
 
-      <Field id="company_name" label="Company or business name" error={errors.company_name}>
-        <input id="company_name" autoComplete="organization" value={v.company_name} onChange={(e) => set("company_name", e.target.value)} className={cls("company_name")} {...aria("company_name")} />
-      </Field>
+      {v.client_type === "company" && (
+        <Field id="company_name" label="Company or business name" error={errors.company_name}>
+          <input id="company_name" autoComplete="organization" value={v.company_name} onChange={(e) => set("company_name", e.target.value)} className={cls("company_name")} {...aria("company_name")} />
+        </Field>
+      )}
 
       <div className="grid gap-4 sm:grid-cols-2">
         <Field id="email" label="Email" error={errors.email}>

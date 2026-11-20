@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { MOCK_AUTH, MOCK_PASSWORD, ROLE_HOME, login, saveSession } from "@/lib/auth";
+import { ROLE_HOME, login, saveSession } from "@/lib/auth";
 
 const inputClass =
   "w-full rounded-2xl border border-line bg-white py-3.5 pl-12 pr-12 text-charcoal shadow-inner placeholder:text-muted focus:border-burgundy focus:outline-none focus:ring-2 focus:ring-peach";
@@ -128,11 +128,7 @@ export default function LoginForm() {
         )}
       </button>
 
-      {MOCK_AUTH && (
-        <p className="rounded-xl bg-ivory px-3 py-2 text-xs text-muted">
-          Demo mode: sign in as nimal, dilani, kasun, ruwan or hasini with the password {MOCK_PASSWORD}.
-        </p>
-      )}
+     
     </form>
   );
 }

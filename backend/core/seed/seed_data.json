@@ -1,0 +1,2255 @@
+{
+ "order": [
+  "client",
+  "enquiry",
+  "quotation",
+  "project_template",
+  "project",
+  "project_role",
+  "role",
+  "users",
+  "open_role",
+  "freelancer_profile",
+  "job_application",
+  "invitation",
+  "assignment",
+  "attendance_log",
+  "availability",
+  "certification",
+  "employee_profile",
+  "leave_request",
+  "performance_metric",
+  "portfolio_item",
+  "portfolio_review",
+  "rating",
+  "rating_score",
+  "skill",
+  "timesheet",
+  "user_skill",
+  "addon",
+  "application_portfolio",
+  "call_sheet",
+  "client_contact",
+  "package",
+  "quotation_item",
+  "task",
+  "equipment_kit",
+  "equipment",
+  "equipment_booking",
+  "checkout_log",
+  "deliverable",
+  "deliverable_version",
+  "maintenance_log",
+  "proof_comment",
+  "revision_request",
+  "studio",
+  "studio_booking",
+  "audit_log",
+  "chat_session",
+  "faq_article",
+  "chat_message",
+  "project_comment",
+  "expense",
+  "freelancer_invoice",
+  "invoice",
+  "notification",
+  "payment",
+  "payout",
+  "refund",
+  "support_ticket"
+ ],
+ "tables": {
+  "client": [
+   {
+    "id": 1,
+    "company_name": "Ceylon Foods (Pvt) Ltd",
+    "address": "45 Galle Road, Colombo 03",
+    "loyalty_tier": "gold",
+    "client_type": "company"
+   },
+   {
+    "id": 2,
+    "company_name": "Island Resorts Negombo",
+    "address": "12 Beach Road, Negombo",
+    "loyalty_tier": "silver",
+    "client_type": "company"
+   },
+   {
+    "id": 3,
+    "company_name": "TechNova Solutions",
+    "address": "88 Duplication Road, Colombo 04",
+    "loyalty_tier": "bronze",
+    "client_type": "company"
+   },
+   {
+    "id": 4,
+    "company_name": "Green Leaf Cafe",
+    "address": "7 Temple Road, Kandy",
+    "loyalty_tier": "bronze",
+    "client_type": "company"
+   },
+   {
+    "id": 5,
+    "client_type": "individual",
+    "company_name": "",
+    "address": "22 Peradeniya Road, Kandy",
+    "loyalty_tier": "bronze"
+   }
+  ],
+  "enquiry": [
+   {
+    "id": 1,
+    "client_id": 1,
+    "source": "website",
+    "service_type": "Videography",
+    "event_date": "2026-12-10",
+    "budget": "450000.00",
+    "status": "accepted"
+   },
+   {
+    "id": 2,
+    "client_id": 2,
+    "source": "chatbot",
+    "service_type": "Photography",
+    "event_date": "2026-12-18",
+    "budget": "250000.00",
+    "status": "quoted"
+   },
+   {
+    "id": 3,
+    "client_id": 3,
+    "source": "website",
+    "service_type": "Voice-over",
+    "event_date": "2026-11-30",
+    "budget": "120000.00",
+    "status": "accepted"
+   },
+   {
+    "id": 4,
+    "client_id": 4,
+    "source": "staff",
+    "service_type": "Photography",
+    "event_date": "2027-01-15",
+    "budget": "80000.00",
+    "status": "new"
+   },
+   {
+    "id": 5,
+    "client_id": 1,
+    "source": "website",
+    "service_type": "Presenting",
+    "event_date": "2026-11-25",
+    "budget": "150000.00",
+    "status": "accepted"
+   },
+   {
+    "id": 6,
+    "client_id": 2,
+    "source": "website",
+    "service_type": "Videography",
+    "event_date": "2026-10-05",
+    "budget": "600000.00",
+    "status": "accepted"
+   },
+   {
+    "id": 7,
+    "client_id": 5,
+    "source": "website",
+    "service_type": "Photography",
+    "event_date": "2027-02-14",
+    "budget": "60000.00",
+    "status": "new"
+   }
+  ],
+  "quotation": [
+   {
+    "id": 1,
+    "enquiry_id": 1,
+    "version": 1,
+    "expiry": "2026-11-30",
+    "total": "315000.00",
+    "status": "accepted"
+   },
+   {
+    "id": 2,
+    "enquiry_id": 2,
+    "version": 1,
+    "expiry": "2026-11-25",
+    "total": "160000.00",
+    "status": "sent"
+   },
+   {
+    "id": 3,
+    "enquiry_id": 3,
+    "version": 1,
+    "expiry": "2026-11-20",
+    "total": "80000.00",
+    "status": "accepted"
+   },
+   {
+    "id": 4,
+    "enquiry_id": 5,
+    "version": 1,
+    "expiry": "2026-11-15",
+    "total": "115000.00",
+    "status": "accepted"
+   },
+   {
+    "id": 5,
+    "enquiry_id": 6,
+    "version": 1,
+    "expiry": "2026-09-20",
+    "total": "555000.00",
+    "status": "accepted"
+   }
+  ],
+  "project_template": [
+   {
+    "id": 1,
+    "name": "Corporate Video"
+   },
+   {
+    "id": 2,
+    "name": "Product Photoshoot"
+   },
+   {
+    "id": 3,
+    "name": "Radio Ad"
+   },
+   {
+    "id": 4,
+    "name": "Event Coverage"
+   }
+  ],
+  "project": [
+   {
+    "id": 1,
+    "quotation_id": 3,
+    "client_id": 3,
+    "template_id": 3,
+    "title": "TechNova Radio Ad",
+    "is_large": false,
+    "stage": "post_production",
+    "start_date": "2026-11-10",
+    "end_date": "2026-11-30"
+   },
+   {
+    "id": 2,
+    "quotation_id": 4,
+    "client_id": 1,
+    "template_id": null,
+    "title": "Ceylon Foods Product Launch Host",
+    "is_large": false,
+    "stage": "production",
+    "start_date": "2026-11-25",
+    "end_date": "2026-11-26"
+   },
+   {
+    "id": 3,
+    "quotation_id": 5,
+    "client_id": 2,
+    "template_id": 1,
+    "title": "Island Resorts Brand Film",
+    "is_large": true,
+    "stage": "review",
+    "start_date": "2026-10-05",
+    "end_date": "2026-11-20"
+   },
+   {
+    "id": 4,
+    "quotation_id": null,
+    "client_id": 4,
+    "template_id": 2,
+    "title": "Green Leaf Menu Photoshoot",
+    "is_large": false,
+    "stage": "confirmed",
+    "start_date": "2026-12-05",
+    "end_date": "2026-12-06"
+   },
+   {
+    "id": 5,
+    "quotation_id": 1,
+    "client_id": 1,
+    "template_id": 1,
+    "title": "Ceylon Foods Annual Campaign",
+    "is_large": true,
+    "stage": "pre_production",
+    "start_date": "2026-12-10",
+    "end_date": "2026-12-20"
+   }
+  ],
+  "project_role": [
+   {
+    "id": 1,
+    "project_id": 1,
+    "role_type": "Voice-over Artist",
+    "rate": "40000.00"
+   },
+   {
+    "id": 2,
+    "project_id": 1,
+    "role_type": "Sound Editor",
+    "rate": "20000.00"
+   },
+   {
+    "id": 3,
+    "project_id": 2,
+    "role_type": "Presenter",
+    "rate": "60000.00"
+   },
+   {
+    "id": 4,
+    "project_id": 3,
+    "role_type": "Videographer",
+    "rate": "80000.00"
+   },
+   {
+    "id": 5,
+    "project_id": 3,
+    "role_type": "Videographer",
+    "rate": "80000.00"
+   },
+   {
+    "id": 6,
+    "project_id": 3,
+    "role_type": "Editor",
+    "rate": "60000.00"
+   },
+   {
+    "id": 7,
+    "project_id": 4,
+    "role_type": "Photographer",
+    "rate": "45000.00"
+   },
+   {
+    "id": 8,
+    "project_id": 5,
+    "role_type": "Videographer",
+    "rate": "90000.00"
+   },
+   {
+    "id": 9,
+    "project_id": 5,
+    "role_type": "Videographer",
+    "rate": "90000.00"
+   },
+   {
+    "id": 10,
+    "project_id": 5,
+    "role_type": "Drone Operator",
+    "rate": "70000.00"
+   },
+   {
+    "id": 11,
+    "project_id": 5,
+    "role_type": "Photographer",
+    "rate": "60000.00"
+   },
+   {
+    "id": 12,
+    "project_id": 5,
+    "role_type": "Editor",
+    "rate": "70000.00"
+   }
+  ],
+  "role": [
+   {
+    "id": 1,
+    "name": "owner"
+   },
+   {
+    "id": 2,
+    "name": "manager"
+   },
+   {
+    "id": 3,
+    "name": "employee"
+   },
+   {
+    "id": 4,
+    "name": "freelancer"
+   },
+   {
+    "id": 5,
+    "name": "client"
+   }
+  ],
+  "users": [
+   {
+    "id": 1,
+    "role_id": 1,
+    "name": "Nimal Perera",
+    "email": "nimal@lova.lk",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 2,
+    "role_id": 2,
+    "name": "Dilani Fernando",
+    "email": "dilani@lova.lk",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 3,
+    "role_id": 3,
+    "name": "Kasun Silva",
+    "email": "kasun@lova.lk",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 4,
+    "role_id": 3,
+    "name": "Ishara Jayawardena",
+    "email": "ishara@lova.lk",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 5,
+    "role_id": 3,
+    "name": "Tharindu Wijesinghe",
+    "email": "tharindu@lova.lk",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 6,
+    "role_id": 3,
+    "name": "Nadeesha Rathnayake",
+    "email": "nadeesha@lova.lk",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 7,
+    "role_id": 3,
+    "name": "Sachini Gunasekara",
+    "email": "sachini@lova.lk",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 8,
+    "role_id": 4,
+    "name": "Ruwan Bandara",
+    "email": "ruwan@example.com",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 9,
+    "role_id": 4,
+    "name": "Amali Herath",
+    "email": "amali@example.com",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 10,
+    "role_id": 4,
+    "name": "Chamara Dissanayake",
+    "email": "chamara@example.com",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 11,
+    "role_id": 4,
+    "name": "Priyantha Kumar",
+    "email": "priyantha@example.com",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 12,
+    "role_id": 5,
+    "name": "Hasini Abeysekara",
+    "email": "hasini@ceylonfoods.lk",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 13,
+    "role_id": 5,
+    "name": "Mahesh Wickramasinghe",
+    "email": "mahesh@islandresorts.lk",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 14,
+    "role_id": 5,
+    "name": "Shanika de Silva",
+    "email": "shanika@technova.lk",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 15,
+    "role_id": 5,
+    "name": "Roshan Perera",
+    "email": "roshan@greenleaf.lk",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   },
+   {
+    "id": 16,
+    "role_id": 5,
+    "name": "Nethmi Rajapaksa",
+    "email": "nethmi@example.com",
+    "password_hash": "PLACEHOLDER_HASH",
+    "status": "active"
+   }
+  ],
+  "open_role": [
+   {
+    "id": 1,
+    "project_role_id": 8,
+    "rate_min": "80000.00",
+    "rate_max": "100000.00",
+    "status": "open"
+   },
+   {
+    "id": 2,
+    "project_role_id": 9,
+    "rate_min": "80000.00",
+    "rate_max": "95000.00",
+    "status": "filled"
+   },
+   {
+    "id": 3,
+    "project_role_id": 10,
+    "rate_min": "60000.00",
+    "rate_max": "80000.00",
+    "status": "open"
+   },
+   {
+    "id": 4,
+    "project_role_id": 11,
+    "rate_min": "50000.00",
+    "rate_max": "70000.00",
+    "status": "open"
+   }
+  ],
+  "freelancer_profile": [
+   {
+    "id": 1,
+    "user_id": 8,
+    "tier": "preferred",
+    "day_rate": "45000.00",
+    "location": "Colombo"
+   },
+   {
+    "id": 2,
+    "user_id": 9,
+    "tier": "approved",
+    "day_rate": "40000.00",
+    "location": "Kandy"
+   },
+   {
+    "id": 3,
+    "user_id": 10,
+    "tier": "approved",
+    "day_rate": "50000.00",
+    "location": "Negombo"
+   },
+   {
+    "id": 4,
+    "user_id": 11,
+    "tier": "probation",
+    "day_rate": "30000.00",
+    "location": "Galle"
+   }
+  ],
+  "job_application": [
+   {
+    "id": 1,
+    "open_role_id": 1,
+    "freelancer_id": 1,
+    "proposed_rate": "90000.00",
+    "match_score": "88.50",
+    "status": "submitted"
+   },
+   {
+    "id": 2,
+    "open_role_id": 2,
+    "freelancer_id": 3,
+    "proposed_rate": "85000.00",
+    "match_score": "90.00",
+    "status": "accepted"
+   },
+   {
+    "id": 3,
+    "open_role_id": 3,
+    "freelancer_id": 3,
+    "proposed_rate": "70000.00",
+    "match_score": "80.00",
+    "status": "rejected"
+   },
+   {
+    "id": 4,
+    "open_role_id": 4,
+    "freelancer_id": 2,
+    "proposed_rate": "60000.00",
+    "match_score": "91.00",
+    "status": "submitted"
+   },
+   {
+    "id": 5,
+    "open_role_id": 4,
+    "freelancer_id": 4,
+    "proposed_rate": "50000.00",
+    "match_score": "70.50",
+    "status": "submitted"
+   }
+  ],
+  "invitation": [
+   {
+    "id": 1,
+    "open_role_id": 1,
+    "freelancer_id": 3,
+    "expires_at": "2026-11-12T12:30:00+00:00",
+    "status": "pending"
+   },
+   {
+    "id": 2,
+    "open_role_id": 3,
+    "freelancer_id": 3,
+    "expires_at": "2026-11-08T12:30:00+00:00",
+    "status": "expired"
+   }
+  ],
+  "assignment": [
+   {
+    "id": 1,
+    "project_role_id": 1,
+    "user_id": 6,
+    "application_id": null,
+    "invitation_id": null,
+    "status": "completed",
+    "from_time": "2026-11-12T03:30:00+00:00",
+    "to_time": "2026-11-12T07:30:00+00:00"
+   },
+   {
+    "id": 2,
+    "project_role_id": 2,
+    "user_id": 5,
+    "application_id": null,
+    "invitation_id": null,
+    "status": "in_progress",
+    "from_time": "2026-11-15T03:30:00+00:00",
+    "to_time": "2026-11-28T11:30:00+00:00"
+   },
+   {
+    "id": 3,
+    "project_role_id": 3,
+    "user_id": 7,
+    "application_id": null,
+    "invitation_id": null,
+    "status": "confirmed",
+    "from_time": "2026-11-25T02:30:00+00:00",
+    "to_time": "2026-11-25T11:30:00+00:00"
+   },
+   {
+    "id": 4,
+    "project_role_id": 4,
+    "user_id": 4,
+    "application_id": null,
+    "invitation_id": null,
+    "status": "completed",
+    "from_time": "2026-10-10T02:30:00+00:00",
+    "to_time": "2026-10-12T12:30:00+00:00"
+   },
+   {
+    "id": 5,
+    "project_role_id": 5,
+    "user_id": 8,
+    "application_id": null,
+    "invitation_id": null,
+    "status": "completed",
+    "from_time": "2026-10-10T02:30:00+00:00",
+    "to_time": "2026-10-12T12:30:00+00:00"
+   },
+   {
+    "id": 6,
+    "project_role_id": 6,
+    "user_id": 5,
+    "application_id": null,
+    "invitation_id": null,
+    "status": "completed",
+    "from_time": "2026-10-15T03:30:00+00:00",
+    "to_time": "2026-11-05T11:30:00+00:00"
+   },
+   {
+    "id": 7,
+    "project_role_id": 7,
+    "user_id": 3,
+    "application_id": null,
+    "invitation_id": null,
+    "status": "confirmed",
+    "from_time": "2026-12-05T03:30:00+00:00",
+    "to_time": "2026-12-06T11:30:00+00:00"
+   },
+   {
+    "id": 8,
+    "project_role_id": 9,
+    "user_id": 10,
+    "application_id": 2,
+    "invitation_id": null,
+    "status": "confirmed",
+    "from_time": "2026-12-10T02:30:00+00:00",
+    "to_time": "2026-12-12T12:30:00+00:00"
+   },
+   {
+    "id": 9,
+    "project_role_id": 12,
+    "user_id": 5,
+    "application_id": null,
+    "invitation_id": null,
+    "status": "confirmed",
+    "from_time": "2026-12-13T03:30:00+00:00",
+    "to_time": "2026-12-20T11:30:00+00:00"
+   }
+  ],
+  "attendance_log": [
+   {
+    "id": 1,
+    "assignment_id": 4,
+    "check_in": "2026-10-10T02:15:00+00:00"
+   },
+   {
+    "id": 2,
+    "assignment_id": 5,
+    "check_in": "2026-10-10T02:25:00+00:00"
+   },
+   {
+    "id": 3,
+    "assignment_id": 1,
+    "check_in": "2026-11-12T03:20:00+00:00"
+   }
+  ],
+  "availability": [
+   {
+    "id": 1,
+    "user_id": 8,
+    "day": "2026-12-10",
+    "is_free": true
+   },
+   {
+    "id": 2,
+    "user_id": 8,
+    "day": "2026-12-11",
+    "is_free": true
+   },
+   {
+    "id": 3,
+    "user_id": 9,
+    "day": "2026-12-10",
+    "is_free": true
+   },
+   {
+    "id": 4,
+    "user_id": 10,
+    "day": "2026-12-10",
+    "is_free": true
+   },
+   {
+    "id": 5,
+    "user_id": 10,
+    "day": "2026-12-11",
+    "is_free": true
+   },
+   {
+    "id": 6,
+    "user_id": 10,
+    "day": "2026-12-12",
+    "is_free": true
+   },
+   {
+    "id": 7,
+    "user_id": 11,
+    "day": "2026-12-10",
+    "is_free": false
+   }
+  ],
+  "certification": [
+   {
+    "id": 1,
+    "user_id": 4,
+    "name": "Drone Pilot Licence",
+    "expiry_date": "2027-03-31"
+   },
+   {
+    "id": 2,
+    "user_id": 10,
+    "name": "Drone Pilot Licence",
+    "expiry_date": "2026-12-15"
+   },
+   {
+    "id": 3,
+    "user_id": 3,
+    "name": "First Aid",
+    "expiry_date": "2027-06-30"
+   }
+  ],
+  "employee_profile": [
+   {
+    "id": 1,
+    "user_id": 3,
+    "manager_id": 2,
+    "job_title": "Photographer",
+    "day_rate": "25000.00"
+   },
+   {
+    "id": 2,
+    "user_id": 4,
+    "manager_id": 2,
+    "job_title": "Videographer",
+    "day_rate": "30000.00"
+   },
+   {
+    "id": 3,
+    "user_id": 5,
+    "manager_id": 2,
+    "job_title": "Video Editor",
+    "day_rate": "22000.00"
+   },
+   {
+    "id": 4,
+    "user_id": 6,
+    "manager_id": 2,
+    "job_title": "Voice-over Artist",
+    "day_rate": "28000.00"
+   },
+   {
+    "id": 5,
+    "user_id": 7,
+    "manager_id": 2,
+    "job_title": "Presenter",
+    "day_rate": "35000.00"
+   }
+  ],
+  "leave_request": [
+   {
+    "id": 1,
+    "employee_id": 3,
+    "from_date": "2026-12-20",
+    "to_date": "2026-12-24",
+    "status": "pending"
+   },
+   {
+    "id": 2,
+    "employee_id": 1,
+    "from_date": "2026-11-25",
+    "to_date": "2026-11-26",
+    "status": "approved"
+   },
+   {
+    "id": 3,
+    "employee_id": 5,
+    "from_date": "2026-12-01",
+    "to_date": "2026-12-02",
+    "status": "rejected"
+   }
+  ],
+  "performance_metric": [
+   {
+    "id": 1,
+    "assignment_id": 1,
+    "on_time_rate": "100.00",
+    "revision_rate": "0.50",
+    "objective_score": "4.70"
+   },
+   {
+    "id": 2,
+    "assignment_id": 4,
+    "on_time_rate": "95.00",
+    "revision_rate": "1.00",
+    "objective_score": "4.40"
+   },
+   {
+    "id": 3,
+    "assignment_id": 5,
+    "on_time_rate": "100.00",
+    "revision_rate": "0.80",
+    "objective_score": "4.80"
+   },
+   {
+    "id": 4,
+    "assignment_id": 6,
+    "on_time_rate": "85.00",
+    "revision_rate": "1.50",
+    "objective_score": "4.00"
+   }
+  ],
+  "portfolio_item": [
+   {
+    "id": 1,
+    "freelancer_id": 1,
+    "link": "https://drive.google.com/demo/ruwan-corporate",
+    "role_on_item": "Director of Photography",
+    "tags": "corporate,interview",
+    "verification": "verified"
+   },
+   {
+    "id": 2,
+    "freelancer_id": 1,
+    "link": "https://vimeo.com/demo/ruwan-wedding",
+    "role_on_item": "Videographer",
+    "tags": "wedding,cinematic",
+    "verification": "verified"
+   },
+   {
+    "id": 3,
+    "freelancer_id": 2,
+    "link": "https://drive.google.com/demo/amali-product",
+    "role_on_item": "Photographer",
+    "tags": "product,studio",
+    "verification": "verified"
+   },
+   {
+    "id": 4,
+    "freelancer_id": 3,
+    "link": "https://youtube.com/demo/chamara-drone",
+    "role_on_item": "Drone Operator",
+    "tags": "drone,tourism",
+    "verification": "verified"
+   },
+   {
+    "id": 5,
+    "freelancer_id": 3,
+    "link": "https://drive.google.com/demo/chamara-event",
+    "role_on_item": "Videographer",
+    "tags": "event,corporate",
+    "verification": "unverified"
+   },
+   {
+    "id": 6,
+    "freelancer_id": 4,
+    "link": "https://instagram.com/demo/priyantha",
+    "role_on_item": "Photographer",
+    "tags": "portrait,fashion",
+    "verification": "unverified"
+   }
+  ],
+  "portfolio_review": [
+   {
+    "id": 1,
+    "item_id": 1,
+    "reviewer_id": 2,
+    "score": "4.50"
+   },
+   {
+    "id": 2,
+    "item_id": 2,
+    "reviewer_id": 2,
+    "score": "4.20"
+   },
+   {
+    "id": 3,
+    "item_id": 3,
+    "reviewer_id": 2,
+    "score": "4.80"
+   },
+   {
+    "id": 4,
+    "item_id": 4,
+    "reviewer_id": 2,
+    "score": "4.60"
+   },
+   {
+    "id": 5,
+    "item_id": 5,
+    "reviewer_id": 2,
+    "score": "3.80"
+   }
+  ],
+  "rating": [
+   {
+    "id": 1,
+    "assignment_id": 4,
+    "rater_id": 2,
+    "rater_type": "manager",
+    "overall": "4.50",
+    "comment": "Reliable and creative"
+   },
+   {
+    "id": 2,
+    "assignment_id": 5,
+    "rater_id": 2,
+    "rater_type": "manager",
+    "overall": "4.80",
+    "comment": "Excellent camera work"
+   },
+   {
+    "id": 3,
+    "assignment_id": 6,
+    "rater_id": 2,
+    "rater_type": "manager",
+    "overall": "4.20",
+    "comment": "Good edit, slightly late"
+   },
+   {
+    "id": 4,
+    "assignment_id": 1,
+    "rater_id": 2,
+    "rater_type": "manager",
+    "overall": "4.60",
+    "comment": "Clear voice, few retakes"
+   },
+   {
+    "id": 5,
+    "assignment_id": 1,
+    "rater_id": 14,
+    "rater_type": "client",
+    "overall": "5.00",
+    "comment": "Loved the voice"
+   },
+   {
+    "id": 6,
+    "assignment_id": 4,
+    "rater_id": 13,
+    "rater_type": "client",
+    "overall": "4.00",
+    "comment": "Great footage"
+   }
+  ],
+  "rating_score": [
+   {
+    "id": 1,
+    "rating_id": 1,
+    "criterion": "quality",
+    "stars": 5
+   },
+   {
+    "id": 2,
+    "rating_id": 1,
+    "criterion": "punctuality",
+    "stars": 4
+   },
+   {
+    "id": 3,
+    "rating_id": 2,
+    "criterion": "quality",
+    "stars": 5
+   },
+   {
+    "id": 4,
+    "rating_id": 2,
+    "criterion": "punctuality",
+    "stars": 5
+   },
+   {
+    "id": 5,
+    "rating_id": 3,
+    "criterion": "quality",
+    "stars": 4
+   },
+   {
+    "id": 6,
+    "rating_id": 3,
+    "criterion": "punctuality",
+    "stars": 4
+   },
+   {
+    "id": 7,
+    "rating_id": 4,
+    "criterion": "quality",
+    "stars": 5
+   },
+   {
+    "id": 8,
+    "rating_id": 4,
+    "criterion": "punctuality",
+    "stars": 5
+   }
+  ],
+  "skill": [
+   {
+    "id": 1,
+    "name": "Photography"
+   },
+   {
+    "id": 2,
+    "name": "Videography"
+   },
+   {
+    "id": 3,
+    "name": "Video Editing"
+   },
+   {
+    "id": 4,
+    "name": "Voice-over"
+   },
+   {
+    "id": 5,
+    "name": "Presenting"
+   },
+   {
+    "id": 6,
+    "name": "Drone Operation"
+   },
+   {
+    "id": 7,
+    "name": "Colour Grading"
+   },
+   {
+    "id": 8,
+    "name": "Audio Mixing"
+   }
+  ],
+  "timesheet": [
+   {
+    "id": 1,
+    "employee_id": 1,
+    "day": "2026-11-02",
+    "hours": "8.00"
+   },
+   {
+    "id": 2,
+    "employee_id": 1,
+    "day": "2026-11-03",
+    "hours": "7.50"
+   },
+   {
+    "id": 3,
+    "employee_id": 2,
+    "day": "2026-11-02",
+    "hours": "9.00"
+   },
+   {
+    "id": 4,
+    "employee_id": 3,
+    "day": "2026-11-04",
+    "hours": "8.00"
+   },
+   {
+    "id": 5,
+    "employee_id": 4,
+    "day": "2026-11-12",
+    "hours": "4.00"
+   }
+  ],
+  "user_skill": [
+   {
+    "user_id": 3,
+    "skill_id": 1,
+    "level": 5,
+    "verified": true
+   },
+   {
+    "user_id": 4,
+    "skill_id": 2,
+    "level": 4,
+    "verified": true
+   },
+   {
+    "user_id": 4,
+    "skill_id": 6,
+    "level": 4,
+    "verified": true
+   },
+   {
+    "user_id": 5,
+    "skill_id": 3,
+    "level": 5,
+    "verified": true
+   },
+   {
+    "user_id": 5,
+    "skill_id": 7,
+    "level": 4,
+    "verified": true
+   },
+   {
+    "user_id": 6,
+    "skill_id": 4,
+    "level": 5,
+    "verified": true
+   },
+   {
+    "user_id": 6,
+    "skill_id": 8,
+    "level": 3,
+    "verified": true
+   },
+   {
+    "user_id": 7,
+    "skill_id": 5,
+    "level": 5,
+    "verified": true
+   },
+   {
+    "user_id": 8,
+    "skill_id": 2,
+    "level": 5,
+    "verified": true
+   },
+   {
+    "user_id": 8,
+    "skill_id": 3,
+    "level": 3,
+    "verified": true
+   },
+   {
+    "user_id": 9,
+    "skill_id": 1,
+    "level": 5,
+    "verified": true
+   },
+   {
+    "user_id": 10,
+    "skill_id": 2,
+    "level": 4,
+    "verified": true
+   },
+   {
+    "user_id": 10,
+    "skill_id": 6,
+    "level": 5,
+    "verified": true
+   },
+   {
+    "user_id": 11,
+    "skill_id": 1,
+    "level": 3,
+    "verified": false
+   }
+  ],
+  "addon": [
+   {
+    "id": 1,
+    "name": "Drone footage",
+    "price": "40000.00"
+   },
+   {
+    "id": 2,
+    "name": "Rush delivery",
+    "price": "25000.00"
+   },
+   {
+    "id": 3,
+    "name": "Extra revision",
+    "price": "15000.00"
+   },
+   {
+    "id": 4,
+    "name": "Second-language voice-over",
+    "price": "20000.00"
+   }
+  ],
+  "application_portfolio": [
+   {
+    "application_id": 1,
+    "item_id": 1
+   },
+   {
+    "application_id": 1,
+    "item_id": 2
+   },
+   {
+    "application_id": 2,
+    "item_id": 4
+   },
+   {
+    "application_id": 2,
+    "item_id": 5
+   },
+   {
+    "application_id": 4,
+    "item_id": 3
+   },
+   {
+    "application_id": 5,
+    "item_id": 6
+   }
+  ],
+  "call_sheet": [
+   {
+    "id": 1,
+    "project_id": 3,
+    "call_time": "2026-10-10T01:30:00+00:00",
+    "notes": "Meet at hotel lobby, Negombo. Drone permit required."
+   },
+   {
+    "id": 2,
+    "project_id": 2,
+    "call_time": "2026-11-25T02:00:00+00:00",
+    "notes": "Launch venue, Colombo 03. Wear branded shirt."
+   },
+   {
+    "id": 3,
+    "project_id": 4,
+    "call_time": "2026-12-05T03:00:00+00:00",
+    "notes": "Green Leaf Cafe, Kandy. Bring photo kit and flash."
+   }
+  ],
+  "client_contact": [
+   {
+    "id": 1,
+    "client_id": 1,
+    "user_id": 12,
+    "position": "Marketing Manager"
+   },
+   {
+    "id": 2,
+    "client_id": 2,
+    "user_id": 13,
+    "position": "Brand Manager"
+   },
+   {
+    "id": 3,
+    "client_id": 3,
+    "user_id": 14,
+    "position": "CEO"
+   },
+   {
+    "id": 4,
+    "client_id": 4,
+    "user_id": 15,
+    "position": "Owner"
+   },
+   {
+    "id": 5,
+    "client_id": 5,
+    "user_id": 16,
+    "position": ""
+   }
+  ],
+  "package": [
+   {
+    "id": 1,
+    "name": "Basic Photo Shoot",
+    "base_price": "50000.00",
+    "revision_limit": 2
+   },
+   {
+    "id": 2,
+    "name": "Corporate Video",
+    "base_price": "250000.00",
+    "revision_limit": 3
+   },
+   {
+    "id": 3,
+    "name": "Event Coverage",
+    "base_price": "120000.00",
+    "revision_limit": 2
+   },
+   {
+    "id": 4,
+    "name": "Voice-over Package",
+    "base_price": "60000.00",
+    "revision_limit": 2
+   },
+   {
+    "id": 5,
+    "name": "Presenter Package",
+    "base_price": "90000.00",
+    "revision_limit": 1
+   },
+   {
+    "id": 6,
+    "name": "Brand Film Premium",
+    "base_price": "500000.00",
+    "revision_limit": 3
+   }
+  ],
+  "quotation_item": [
+   {
+    "id": 1,
+    "quotation_id": 1,
+    "package_id": 2,
+    "addon_id": null,
+    "amount": "250000.00"
+   },
+   {
+    "id": 2,
+    "quotation_id": 1,
+    "package_id": null,
+    "addon_id": 1,
+    "amount": "40000.00"
+   },
+   {
+    "id": 3,
+    "quotation_id": 1,
+    "package_id": null,
+    "addon_id": 2,
+    "amount": "25000.00"
+   },
+   {
+    "id": 4,
+    "quotation_id": 2,
+    "package_id": 3,
+    "addon_id": null,
+    "amount": "120000.00"
+   },
+   {
+    "id": 5,
+    "quotation_id": 2,
+    "package_id": null,
+    "addon_id": 1,
+    "amount": "40000.00"
+   },
+   {
+    "id": 6,
+    "quotation_id": 3,
+    "package_id": 4,
+    "addon_id": null,
+    "amount": "60000.00"
+   },
+   {
+    "id": 7,
+    "quotation_id": 3,
+    "package_id": null,
+    "addon_id": 4,
+    "amount": "20000.00"
+   },
+   {
+    "id": 8,
+    "quotation_id": 4,
+    "package_id": 5,
+    "addon_id": null,
+    "amount": "90000.00"
+   },
+   {
+    "id": 9,
+    "quotation_id": 4,
+    "package_id": null,
+    "addon_id": 2,
+    "amount": "25000.00"
+   },
+   {
+    "id": 10,
+    "quotation_id": 5,
+    "package_id": 6,
+    "addon_id": null,
+    "amount": "500000.00"
+   },
+   {
+    "id": 11,
+    "quotation_id": 5,
+    "package_id": null,
+    "addon_id": 1,
+    "amount": "40000.00"
+   },
+   {
+    "id": 12,
+    "quotation_id": 5,
+    "package_id": null,
+    "addon_id": 3,
+    "amount": "15000.00"
+   }
+  ],
+  "task": [
+   {
+    "id": 1,
+    "project_id": 1,
+    "assignment_id": 2,
+    "title": "Mix and master radio ad",
+    "due_date": "2026-11-28",
+    "status": "in_progress"
+   },
+   {
+    "id": 2,
+    "project_id": 1,
+    "assignment_id": 1,
+    "title": "Record voice-over",
+    "due_date": "2026-11-12",
+    "status": "done"
+   },
+   {
+    "id": 3,
+    "project_id": 2,
+    "assignment_id": 3,
+    "title": "Host product launch",
+    "due_date": "2026-11-25",
+    "status": "todo"
+   },
+   {
+    "id": 4,
+    "project_id": 3,
+    "assignment_id": 6,
+    "title": "Edit 90s brand film",
+    "due_date": "2026-11-05",
+    "status": "done"
+   },
+   {
+    "id": 5,
+    "project_id": 4,
+    "assignment_id": 7,
+    "title": "Shoot menu items",
+    "due_date": "2026-12-05",
+    "status": "todo"
+   },
+   {
+    "id": 6,
+    "project_id": 5,
+    "assignment_id": 9,
+    "title": "Edit campaign film",
+    "due_date": "2026-12-20",
+    "status": "todo"
+   },
+   {
+    "id": 7,
+    "project_id": 5,
+    "assignment_id": null,
+    "title": "Confirm shooting locations",
+    "due_date": "2026-12-01",
+    "status": "in_progress"
+   }
+  ],
+  "equipment_kit": [
+   {
+    "id": 1,
+    "name": "Interview Kit"
+   },
+   {
+    "id": 2,
+    "name": "Photo Kit"
+   },
+   {
+    "id": 3,
+    "name": "Drone Kit"
+   }
+  ],
+  "equipment": [
+   {
+    "id": 1,
+    "kit_id": 1,
+    "serial_no": "SN-CAM-001",
+    "qr_code": "QR-001",
+    "category": "camera",
+    "status": "available",
+    "daily_rate": "15000.00"
+   },
+   {
+    "id": 2,
+    "kit_id": 1,
+    "serial_no": "SN-LEN-001",
+    "qr_code": "QR-002",
+    "category": "lens",
+    "status": "available",
+    "daily_rate": "3000.00"
+   },
+   {
+    "id": 3,
+    "kit_id": 1,
+    "serial_no": "SN-LGT-001",
+    "qr_code": "QR-003",
+    "category": "lighting",
+    "status": "available",
+    "daily_rate": "4000.00"
+   },
+   {
+    "id": 4,
+    "kit_id": 1,
+    "serial_no": "SN-MIC-001",
+    "qr_code": "QR-004",
+    "category": "audio",
+    "status": "available",
+    "daily_rate": "2000.00"
+   },
+   {
+    "id": 5,
+    "kit_id": 2,
+    "serial_no": "SN-CAM-002",
+    "qr_code": "QR-005",
+    "category": "camera",
+    "status": "available",
+    "daily_rate": "10000.00"
+   },
+   {
+    "id": 6,
+    "kit_id": 2,
+    "serial_no": "SN-LEN-002",
+    "qr_code": "QR-006",
+    "category": "lens",
+    "status": "available",
+    "daily_rate": "3000.00"
+   },
+   {
+    "id": 7,
+    "kit_id": 3,
+    "serial_no": "SN-DRN-001",
+    "qr_code": "QR-007",
+    "category": "drone",
+    "status": "available",
+    "daily_rate": "12000.00"
+   },
+   {
+    "id": 8,
+    "kit_id": null,
+    "serial_no": "SN-REC-001",
+    "qr_code": "QR-008",
+    "category": "audio",
+    "status": "available",
+    "daily_rate": "1500.00"
+   },
+   {
+    "id": 9,
+    "kit_id": null,
+    "serial_no": "SN-TRI-001",
+    "qr_code": "QR-009",
+    "category": "accessory",
+    "status": "maintenance",
+    "daily_rate": "500.00"
+   },
+   {
+    "id": 10,
+    "kit_id": 2,
+    "serial_no": "SN-FLS-001",
+    "qr_code": "QR-010",
+    "category": "lighting",
+    "status": "available",
+    "daily_rate": "2000.00"
+   }
+  ],
+  "equipment_booking": [
+   {
+    "id": 1,
+    "equipment_id": 1,
+    "project_id": 3,
+    "from_time": "2026-10-10T02:30:00+00:00",
+    "to_time": "2026-10-12T12:30:00+00:00",
+    "status": "returned"
+   },
+   {
+    "id": 2,
+    "equipment_id": 2,
+    "project_id": 3,
+    "from_time": "2026-10-10T02:30:00+00:00",
+    "to_time": "2026-10-12T12:30:00+00:00",
+    "status": "returned"
+   },
+   {
+    "id": 3,
+    "equipment_id": 7,
+    "project_id": 3,
+    "from_time": "2026-10-10T02:30:00+00:00",
+    "to_time": "2026-10-12T12:30:00+00:00",
+    "status": "returned"
+   },
+   {
+    "id": 4,
+    "equipment_id": 5,
+    "project_id": 4,
+    "from_time": "2026-12-05T02:30:00+00:00",
+    "to_time": "2026-12-06T12:30:00+00:00",
+    "status": "reserved"
+   },
+   {
+    "id": 5,
+    "equipment_id": 6,
+    "project_id": 4,
+    "from_time": "2026-12-05T02:30:00+00:00",
+    "to_time": "2026-12-06T12:30:00+00:00",
+    "status": "reserved"
+   },
+   {
+    "id": 6,
+    "equipment_id": 1,
+    "project_id": 5,
+    "from_time": "2026-12-10T02:30:00+00:00",
+    "to_time": "2026-12-12T12:30:00+00:00",
+    "status": "reserved"
+   },
+   {
+    "id": 7,
+    "equipment_id": 7,
+    "project_id": 5,
+    "from_time": "2026-12-10T02:30:00+00:00",
+    "to_time": "2026-12-12T12:30:00+00:00",
+    "status": "reserved"
+   }
+  ],
+  "checkout_log": [
+   {
+    "id": 1,
+    "booking_id": 1,
+    "out_at": "2026-10-10T02:00:00+00:00",
+    "in_at": "2026-10-12T13:30:00+00:00",
+    "condition_in": "Good"
+   },
+   {
+    "id": 2,
+    "booking_id": 2,
+    "out_at": "2026-10-10T02:00:00+00:00",
+    "in_at": "2026-10-12T13:30:00+00:00",
+    "condition_in": "Good"
+   },
+   {
+    "id": 3,
+    "booking_id": 3,
+    "out_at": "2026-10-10T02:00:00+00:00",
+    "in_at": "2026-10-12T13:30:00+00:00",
+    "condition_in": "Minor scratch on propeller guard"
+   }
+  ],
+  "deliverable": [
+   {
+    "id": 1,
+    "project_id": 1,
+    "name": "Radio Ad 30s",
+    "type": "audio",
+    "status": "in_review"
+   },
+   {
+    "id": 2,
+    "project_id": 3,
+    "name": "Brand Film 90s",
+    "type": "video",
+    "status": "in_review"
+   },
+   {
+    "id": 3,
+    "project_id": 3,
+    "name": "Social cutdowns",
+    "type": "video",
+    "status": "draft"
+   }
+  ],
+  "deliverable_version": [
+   {
+    "id": 1,
+    "deliverable_id": 1,
+    "submitted_by": 5,
+    "version_no": 1,
+    "proof_link": "https://drive.google.com/demo/radio-proof",
+    "final_link": "https://drive.google.com/demo/radio-final",
+    "visibility": "client_visible",
+    "link_status": "ok"
+   },
+   {
+    "id": 2,
+    "deliverable_id": 2,
+    "submitted_by": 5,
+    "version_no": 1,
+    "proof_link": "https://drive.google.com/demo/film-proof-v1",
+    "final_link": "https://drive.google.com/demo/film-final-v1",
+    "visibility": "client_visible",
+    "link_status": "ok"
+   },
+   {
+    "id": 3,
+    "deliverable_id": 2,
+    "submitted_by": 5,
+    "version_no": 2,
+    "proof_link": "https://drive.google.com/demo/film-proof-v2",
+    "final_link": "https://drive.google.com/demo/film-final-v2",
+    "visibility": "internal",
+    "link_status": "ok"
+   },
+   {
+    "id": 4,
+    "deliverable_id": 3,
+    "submitted_by": 5,
+    "version_no": 1,
+    "proof_link": "https://drive.google.com/demo/cutdowns-proof",
+    "final_link": null,
+    "visibility": "internal",
+    "link_status": "ok"
+   }
+  ],
+  "maintenance_log": [
+   {
+    "id": 1,
+    "equipment_id": 9,
+    "service_date": "2026-11-01",
+    "notes": "Tripod head repair"
+   },
+   {
+    "id": 2,
+    "equipment_id": 1,
+    "service_date": "2026-08-15",
+    "notes": "Sensor cleaning"
+   }
+  ],
+  "proof_comment": [
+   {
+    "id": 1,
+    "version_id": 2,
+    "author_id": 13,
+    "time_stamp": "00:14",
+    "comment_text": "Please adjust the logo colour"
+   },
+   {
+    "id": 2,
+    "version_id": 2,
+    "author_id": 13,
+    "time_stamp": "00:42",
+    "comment_text": "Trim the pause before the closing line"
+   },
+   {
+    "id": 3,
+    "version_id": 1,
+    "author_id": 14,
+    "time_stamp": "00:10",
+    "comment_text": "Voice-over slightly fast here"
+   }
+  ],
+  "revision_request": [
+   {
+    "id": 1,
+    "version_id": 2,
+    "round_no": 1,
+    "billable": false
+   },
+   {
+    "id": 2,
+    "version_id": 1,
+    "round_no": 1,
+    "billable": false
+   }
+  ],
+  "studio": [
+   {
+    "id": 1,
+    "name": "Recording Booth A",
+    "type": "voice",
+    "hourly_rate": "3500.00"
+   },
+   {
+    "id": 2,
+    "name": "Photo Studio 1",
+    "type": "photo",
+    "hourly_rate": "6000.00"
+   }
+  ],
+  "studio_booking": [
+   {
+    "id": 1,
+    "studio_id": 1,
+    "project_id": 1,
+    "from_time": "2026-11-12T03:30:00+00:00",
+    "to_time": "2026-11-12T07:30:00+00:00",
+    "buffer_mins": 30
+   },
+   {
+    "id": 2,
+    "studio_id": 2,
+    "project_id": 4,
+    "from_time": "2026-12-06T04:30:00+00:00",
+    "to_time": "2026-12-06T10:30:00+00:00",
+    "buffer_mins": 60
+   }
+  ],
+  "audit_log": [
+   {
+    "id": 1,
+    "user_id": 2,
+    "action": "assigned crew",
+    "entity": "assignment",
+    "at_time": "2026-11-02T04:45:00+00:00"
+   },
+   {
+    "id": 2,
+    "user_id": 1,
+    "action": "verified payment",
+    "entity": "payment",
+    "at_time": "2026-11-03T03:30:00+00:00"
+   },
+   {
+    "id": 3,
+    "user_id": 2,
+    "action": "approved leave",
+    "entity": "leave_request",
+    "at_time": "2026-11-04T06:00:00+00:00"
+   },
+   {
+    "id": 4,
+    "user_id": 2,
+    "action": "changed stage to pre_production",
+    "entity": "project",
+    "at_time": "2026-11-21T08:30:00+00:00"
+   }
+  ],
+  "chat_session": [
+   {
+    "id": 1,
+    "user_id": 14,
+    "audience": "client",
+    "handed_off": true
+   },
+   {
+    "id": 2,
+    "user_id": null,
+    "audience": "visitor",
+    "handed_off": false
+   },
+   {
+    "id": 3,
+    "user_id": 12,
+    "audience": "client",
+    "handed_off": false
+   }
+  ],
+  "faq_article": [
+   {
+    "id": 1,
+    "question": "What services do you offer?",
+    "answer": "Photography, videography, voice-overs and presenting."
+   },
+   {
+    "id": 2,
+    "question": "How many revisions are included?",
+    "answer": "Each package lists its revision limit. Extra revisions are charged."
+   },
+   {
+    "id": 3,
+    "question": "How long does delivery take?",
+    "answer": "Most projects are delivered within 2 to 3 weeks after the shoot."
+   },
+   {
+    "id": 4,
+    "question": "Can I choose my voice-over artist?",
+    "answer": "Yes. Browse the demos and select your preferred voice."
+   },
+   {
+    "id": 5,
+    "question": "How do I pay?",
+    "answer": "Pay online or upload a bank transfer slip in your portal."
+   },
+   {
+    "id": 6,
+    "question": "When do I get the final files?",
+    "answer": "Final files are released after the balance is paid."
+   }
+  ],
+  "chat_message": [
+   {
+    "id": 1,
+    "session_id": 1,
+    "faq_id": 2,
+    "sender": "client",
+    "message_text": "How many revisions do I get?"
+   },
+   {
+    "id": 2,
+    "session_id": 1,
+    "faq_id": 2,
+    "sender": "bot",
+    "message_text": "Each package lists its revision limit."
+   },
+   {
+    "id": 3,
+    "session_id": 1,
+    "faq_id": null,
+    "sender": "client",
+    "message_text": "I need to change the delivery date."
+   },
+   {
+    "id": 4,
+    "session_id": 1,
+    "faq_id": null,
+    "sender": "bot",
+    "message_text": "I have passed this to our team."
+   },
+   {
+    "id": 5,
+    "session_id": 2,
+    "faq_id": 1,
+    "sender": "visitor",
+    "message_text": "What do you offer?"
+   },
+   {
+    "id": 6,
+    "session_id": 2,
+    "faq_id": 1,
+    "sender": "bot",
+    "message_text": "Photography, videography, voice-overs and presenting."
+   },
+   {
+    "id": 7,
+    "session_id": 3,
+    "faq_id": 5,
+    "sender": "client",
+    "message_text": "How can I pay my invoice?"
+   }
+  ],
+  "project_comment": [
+   {
+    "id": 1,
+    "project_id": 3,
+    "author_id": 13,
+    "client_visible": true,
+    "body": "Please check the logo colour in the opening shot."
+   },
+   {
+    "id": 2,
+    "project_id": 3,
+    "author_id": 5,
+    "client_visible": true,
+    "body": "Updated in version 2."
+   },
+   {
+    "id": 3,
+    "project_id": 5,
+    "author_id": 2,
+    "client_visible": false,
+    "body": "Confirm drone permit before 1 Dec."
+   },
+   {
+    "id": 4,
+    "project_id": 1,
+    "author_id": 14,
+    "client_visible": true,
+    "body": "Can we hear a slower read?"
+   }
+  ],
+  "expense": [
+   {
+    "id": 1,
+    "project_id": 3,
+    "category": "travel",
+    "amount": "12000.00"
+   },
+   {
+    "id": 2,
+    "project_id": 3,
+    "category": "equipment_rental",
+    "amount": "25000.00"
+   },
+   {
+    "id": 3,
+    "project_id": 1,
+    "category": "studio",
+    "amount": "14000.00"
+   },
+   {
+    "id": 4,
+    "project_id": 5,
+    "category": "permits",
+    "amount": "8000.00"
+   }
+  ],
+  "freelancer_invoice": [
+   {
+    "id": 1,
+    "assignment_id": 5,
+    "amount": "80000.00",
+    "status": "approved"
+   },
+   {
+    "id": 2,
+    "assignment_id": 8,
+    "amount": "90000.00",
+    "status": "submitted"
+   }
+  ],
+  "invoice": [
+   {
+    "id": 1,
+    "project_id": 1,
+    "quotation_id": 3,
+    "type": "deposit",
+    "amount": "40000.00",
+    "due_date": "2026-11-05",
+    "status": "paid"
+   },
+   {
+    "id": 2,
+    "project_id": 1,
+    "quotation_id": 3,
+    "type": "final",
+    "amount": "40000.00",
+    "due_date": "2026-12-05",
+    "status": "pending_verification"
+   },
+   {
+    "id": 3,
+    "project_id": 3,
+    "quotation_id": 5,
+    "type": "deposit",
+    "amount": "277500.00",
+    "due_date": "2026-09-25",
+    "status": "paid"
+   },
+   {
+    "id": 4,
+    "project_id": 3,
+    "quotation_id": 5,
+    "type": "final",
+    "amount": "277500.00",
+    "due_date": "2026-11-25",
+    "status": "unpaid"
+   },
+   {
+    "id": 5,
+    "project_id": 5,
+    "quotation_id": 1,
+    "type": "deposit",
+    "amount": "157500.00",
+    "due_date": "2026-11-20",
+    "status": "paid"
+   },
+   {
+    "id": 6,
+    "project_id": 5,
+    "quotation_id": 1,
+    "type": "final",
+    "amount": "157500.00",
+    "due_date": "2026-12-30",
+    "status": "unpaid"
+   },
+   {
+    "id": 7,
+    "project_id": 2,
+    "quotation_id": 4,
+    "type": "deposit",
+    "amount": "57500.00",
+    "due_date": "2026-11-15",
+    "status": "paid"
+   },
+   {
+    "id": 8,
+    "project_id": 2,
+    "quotation_id": 4,
+    "type": "final",
+    "amount": "57500.00",
+    "due_date": "2026-12-10",
+    "status": "unpaid"
+   },
+   {
+    "id": 9,
+    "project_id": 4,
+    "quotation_id": null,
+    "type": "deposit",
+    "amount": "20000.00",
+    "due_date": "2026-11-30",
+    "status": "paid"
+   }
+  ],
+  "notification": [
+   {
+    "id": 1,
+    "user_id": 2,
+    "channel": "in_app",
+    "message": "New job application for Videographer",
+    "is_read": false
+   },
+   {
+    "id": 2,
+    "user_id": 2,
+    "channel": "in_app",
+    "message": "Deliverable version 2 waiting for QC",
+    "is_read": false
+   },
+   {
+    "id": 3,
+    "user_id": 1,
+    "channel": "in_app",
+    "message": "Payment slip waiting for verification",
+    "is_read": false
+   },
+   {
+    "id": 4,
+    "user_id": 5,
+    "channel": "in_app",
+    "message": "You have been assigned to Ceylon Foods Annual Campaign",
+    "is_read": true
+   },
+   {
+    "id": 5,
+    "user_id": 13,
+    "channel": "email",
+    "message": "Proof v1 is ready for review",
+    "is_read": true
+   },
+   {
+    "id": 6,
+    "user_id": 10,
+    "channel": "in_app",
+    "message": "Invitation: Videographer, 10 to 12 Dec",
+    "is_read": false
+   }
+  ],
+  "payment": [
+   {
+    "id": 1,
+    "invoice_id": 1,
+    "amount": "40000.00",
+    "method": "bank_transfer",
+    "slip_link": "https://drive.google.com/demo/slip-1",
+    "verified": true
+   },
+   {
+    "id": 2,
+    "invoice_id": 3,
+    "amount": "277500.00",
+    "method": "online",
+    "slip_link": null,
+    "verified": true
+   },
+   {
+    "id": 3,
+    "invoice_id": 5,
+    "amount": "157500.00",
+    "method": "bank_transfer",
+    "slip_link": "https://drive.google.com/demo/slip-3",
+    "verified": true
+   },
+   {
+    "id": 4,
+    "invoice_id": 7,
+    "amount": "57500.00",
+    "method": "online",
+    "slip_link": null,
+    "verified": true
+   },
+   {
+    "id": 5,
+    "invoice_id": 9,
+    "amount": "20000.00",
+    "method": "bank_transfer",
+    "slip_link": "https://drive.google.com/demo/slip-5",
+    "verified": true
+   },
+   {
+    "id": 6,
+    "invoice_id": 2,
+    "amount": "40000.00",
+    "method": "bank_transfer",
+    "slip_link": "https://drive.google.com/demo/slip-6",
+    "verified": false
+   }
+  ],
+  "payout": [
+   {
+    "id": 1,
+    "freelancer_invoice_id": 1,
+    "amount": "80000.00",
+    "paid_on": "2026-11-22"
+   }
+  ],
+  "refund": [
+   {
+    "id": 1,
+    "payment_id": 4,
+    "amount": "5000.00"
+   }
+  ],
+  "support_ticket": [
+   {
+    "id": 1,
+    "client_id": 3,
+    "project_id": 1,
+    "chat_session_id": 1,
+    "subject": "Question about final delivery date",
+    "priority": "medium",
+    "status": "open"
+   },
+   {
+    "id": 2,
+    "client_id": 2,
+    "project_id": 3,
+    "chat_session_id": null,
+    "subject": "Invoice query",
+    "priority": "low",
+    "status": "closed"
+   }
+  ]
+ }
+}

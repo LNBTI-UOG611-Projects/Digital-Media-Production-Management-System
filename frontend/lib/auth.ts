@@ -1,4 +1,4 @@
-// Auth helpers. Member 3 owns this file once the Django auth endpoints exist.
+// Auth helpers: sign in, client registration and the saved session.
 
 export type Role = "owner" | "manager" | "employee" | "freelancer" | "client";
 
@@ -15,26 +15,7 @@ export const ROLE_HOME: Record<Role, string> = {
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api";
 
-// While the Django backend is not built, set NEXT_PUBLIC_MOCK_AUTH=true in .env.local.
-// Any demo user below can sign in with the password Lova@1234.
-export const MOCK_AUTH = process.env.NEXT_PUBLIC_MOCK_AUTH === "true";
-export const MOCK_PASSWORD = "Lova@1234";
-const MOCK_USERS: Record<string, { role: Role; name: string }> = {
-  nimal: { role: "owner", name: "Nimal Perera" },
-  dilani: { role: "manager", name: "Dilani Fernando" },
-  kasun: { role: "employee", name: "Kasun Silva" },
-  ruwan: { role: "freelancer", name: "Ruwan Bandara" },
-  hasini: { role: "client", name: "Hasini Abeysekara" },
-};
-
 export async function login(username: string, password: string): Promise<Session> {
-  if (MOCK_AUTH) {
-    await new Promise((r) => setTimeout(r, 600));
-    const user = MOCK_USERS[username.trim().toLowerCase()];
-    if (!user || password !== MOCK_PASSWORD) throw new Error("Incorrect username or password.");
-    return { access: "mock", refresh: "mock", ...user };
-  }
-
   let res: Response;
   try {
     res = await fetch(`${API_URL}/auth/token/`, {
@@ -49,7 +30,7 @@ export async function login(username: string, password: string): Promise<Session
   if (!res.ok) throw new Error("Something went wrong. Please try again.");
   const tokens: { access: string; refresh: string } = await res.json();
 
-  // The backend's GET /api/auth/me/ returns the user's role and name.
+  // GET /api/auth/me/ returns the user's role and name.
   const meRes = await fetch(`${API_URL}/auth/me/`, { headers: { Authorization: `Bearer ${tokens.access}` } });
   if (!meRes.ok) throw new Error("Signed in, but could not load your profile.");
   const me: { role: Role; first_name: string; last_name: string } = await meRes.json();
@@ -59,9 +40,10 @@ export async function login(username: string, password: string): Promise<Session
 // ---- Client registration ----------------------------------------------------
 
 export type RegisterInput = {
+  client_type: "individual" | "company";
   first_name: string;
   last_name: string;
-  company_name: string;
+  company_name: string; // required for companies, empty for individuals
   email: string;
   phone: string;
   username: string;
@@ -77,18 +59,9 @@ export class RegisterError extends Error {
   }
 }
 
-// Backend contract for Member 3:
-//   POST /api/auth/register/  with the fields above
-//   creates a User (role "client"), a Client (company_name) and a ClientContact
-//   201 on success. On 400 return { "<field>": ["message", ...] } for each bad field.
+// POST /api/auth/register/ creates a User (role "client"), a Client and a ClientContact.
+// It returns 201 on success, or 400 with { "<field>": ["message", ...] } for each bad field.
 export async function registerClient(input: RegisterInput): Promise<void> {
-  if (MOCK_AUTH) {
-    await new Promise((r) => setTimeout(r, 700));
-    if (MOCK_USERS[input.username.trim().toLowerCase()])
-      throw new RegisterError("Please fix the highlighted field.", { username: "That username is already taken." });
-    return;
-  }
-
   let res: Response;
   try {
     res = await fetch(`${API_URL}/auth/register/`, {
@@ -108,7 +81,7 @@ export async function registerClient(input: RegisterInput): Promise<void> {
   if (!res.ok) throw new Error("Something went wrong. Please try again.");
 }
 
-// Temporary storage. Member 3 can replace this with httpOnly cookies.
+// Temporary storage. Can be replaced with httpOnly cookies later.
 export function saveSession(session: Session, remember: boolean) {
   const store = remember ? window.localStorage : window.sessionStorage;
   store.setItem("lova_session", JSON.stringify(session));
